@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Voice Assistant</title>
+
+<link rel="stylesheet" href="veritasfinance-design.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="vf-app.css">
+</head>
+
+<body>
+
+<h1>Voice Assistant</h1>
+
+<select id="language">
+
+<option>English</option>
+<option>Telugu</option>
+<option>Hindi</option>
+
+</select>
+
+<br><br>
+
+<button onclick="startVoice()">
+
+Start Voice Assistant
+
+</button>
+
+<p id="voiceText"></p>
+
+<script src="js/voice.js"></script>
+
+<script src="veritasfinance-sidebar.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Voice Assistant</title>
+
+<link rel="stylesheet" href="vf-app.css">
+</head>
+
+<body>
+
+<h2>AI Voice Assistant</h2>
+
+<form action="voice" method="post">
+
+Voice Command
+
+<br><br>
+
+<input type="text" name="command" size="40">
+
+<br><br>
+
+<input type="submit" value="Execute">
+
+</form>
+
+<br>
+
+<p>Example Commands:</p>
+
+<ul>
+
+<li>dashboard</li>
+
+<li>upload</li>
+
+<li>trust score</li>
+
+<li>analytics</li>
+
+<li>reports</li>
+
+<li>privacy</li>
+
+<li>logout</li>
+
+</ul>
+
+<br>
+
+<a href="dashboard.html">Back to Dashboard</a>
+
+</body>
+
+</html>

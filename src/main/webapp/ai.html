@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Gemini AI Advisor</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="sidebar.css">
+
+<link rel="stylesheet" href="veritasfinance-design.css">
+<link rel="stylesheet" href="vf-app.css">
+</head>
+
+<body>
+<button class="menu-toggle" onclick="toggleSidebar()">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+<div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+<div id="sidebar" class="sidebar">
+
+    <div class="sidebar-header">
+
+        <div>
+            <h2>VeritasFinance</h2>
+            <p>Privacy-First Financial Identity</p>
+        </div>
+
+        <button class="close-btn" onclick="toggleSidebar()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <a href="dashboard.html" class="side dashboard">
+        <i class="fa-solid fa-house"></i>
+        <span>Dashboard</span>
+    </a>
+
+    <a href="upload.html" class="side upload">
+        <i class="fa-solid fa-file-arrow-up"></i>
+        <span>Financial Details</span>
+    </a>
+
+    <a href="analytics.html" class="side analytics">
+        <i class="fa-solid fa-chart-line"></i>
+        <span>Financial Analytics</span>
+    </a>
+
+    <a href="loan.html" class="side loan">
+        <i class="fa-solid fa-credit-card"></i>
+        <span>Loan Eligibility</span>
+    </a>
+
+    <a href="aichat.html" class="side chat">
+        <i class="fa-solid fa-robot"></i>
+        <span>AI Financial Assistant</span>
+    </a>
+
+    <a href="frauddetection.html" class="side fraud">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Fraud Detection</span>
+    </a>
+
+    <a href="budget.html" class="side budget">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Smart Budget Planner</span>
+    </a>
+
+    <div class="sidebar-bottom">
+
+        <a href="login.html" class="logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+</div>
+
+<h2>Gemini AI Financial Advisor</h2>
+
+<form action="gemini" method="post">
+
+Enter Trust Score
+
+<br><br>
+
+<input type="number"
+       name="score"
+       min="0"
+       max="100"
+       required>
+
+<br><br>
+
+<input type="submit"
+       value="Get AI Advice">
+
+</form>
+
+<br>
+
+<a href="dashboard.html">Back to Dashboard</a>
+<script src="js/sidebar.js"></script>
+</body>
+
+</html>

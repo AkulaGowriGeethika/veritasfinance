@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101d35">
+<title>Sign in | VeritasFinance</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+:root{--navy:#101d35;--navy2:#172b4d;--blue:#4268e8;--mint:#a7f3d0;--ink:#172033;--muted:#748096;--line:#e5eaf2}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#f3f6fb;color:var(--ink);font-family:'DM Sans',sans-serif;display:grid;place-items:center;padding:32px}
+.shell{width:min(1080px,100%);min-height:650px;background:#fff;border-radius:26px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 24px 80px rgba(20,37,70,.12)}
+.visual{position:relative;overflow:hidden;padding:54px 56px;background:radial-gradient(circle at 85% 15%,rgba(92,132,255,.38),transparent 34%),linear-gradient(145deg,#101d35,#1c3762);color:white;display:flex;flex-direction:column}
+.visual:before,.visual:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.11);border-radius:50%;width:420px;height:420px;right:-190px;bottom:-190px}.visual:after{width:300px;height:300px;right:-130px;bottom:-130px}
+.brand{font:800 23px Manrope,sans-serif;letter-spacing:-.8px;position:relative;z-index:1}.brand span{color:var(--mint)}
+.eyebrow{margin-top:auto;color:#b9c9e8;font-size:11px;letter-spacing:2.2px;text-transform:uppercase;font-weight:700}
+.visual h1{font:800 clamp(34px,4vw,48px)/1.12 Manrope,sans-serif;letter-spacing:-1.8px;margin:18px 0;color:#fff;max-width:440px;position:relative;z-index:1}
+.visual p{color:#c5d2e8;line-height:1.8;font-size:15px;max-width:390px;margin:0;position:relative;z-index:1}
+.points{display:grid;gap:15px;margin-top:34px;position:relative;z-index:1}.point{display:flex;align-items:center;gap:12px;color:#e5edfb;font-size:13px}.check{width:25px;height:25px;border-radius:8px;background:rgba(167,243,208,.14);color:var(--mint);display:grid;place-items:center;font-weight:700}
+.visual-foot{margin-top:auto;padding-top:38px;color:#93a6c7;font-size:11px;position:relative;z-index:1}
+.form-side{padding:64px 66px;display:flex;flex-direction:column;justify-content:center}.mobile-brand{display:none}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:1.8px;color:var(--blue);font-weight:700;margin-bottom:13px}
+h2{font:800 32px Manrope,sans-serif;letter-spacing:-1.1px;margin:0;color:var(--navy)}.sub{margin:10px 0 34px;color:var(--muted);font-size:14px;line-height:1.65}
+.field{margin-bottom:21px}label{display:block;font-size:12px;font-weight:700;color:#34415a;margin-bottom:9px}
+.input-wrap{position:relative}input{width:100%;height:52px;border:1px solid var(--line);border-radius:11px;padding:0 15px;font:14px 'DM Sans',sans-serif;color:var(--ink);outline:none;background:#fbfcfe;transition:.2s}
+input:focus{border-color:#8098f4;box-shadow:0 0 0 4px rgba(66,104,232,.1);background:#fff}input::placeholder{color:#a4adbd}
+.password{padding-right:72px}.toggle{position:absolute;right:13px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--blue);font:700 12px 'DM Sans';cursor:pointer}
+.options{display:flex;justify-content:space-between;align-items:center;margin:2px 0 24px;font-size:12px;color:var(--muted)}.remember{display:flex;align-items:center;gap:8px}.remember input{width:15px;height:15px;accent-color:var(--blue)}
+.submit{height:53px;width:100%;border:0;border-radius:11px;background:linear-gradient(110deg,#4268e8,#3155d5);color:white;font:700 14px 'DM Sans';letter-spacing:.2px;cursor:pointer;box-shadow:0 10px 20px rgba(66,104,232,.2);transition:.2s}.submit:hover{transform:translateY(-1px);box-shadow:0 13px 24px rgba(66,104,232,.27)}
+.switch{text-align:center;margin-top:26px;color:var(--muted);font-size:13px}.switch a{color:var(--blue);font-weight:700;text-decoration:none;margin-left:4px}.switch a:hover{text-decoration:underline}
+.secure{margin-top:32px;border-top:1px solid #eef1f6;padding-top:20px;display:flex;align-items:center;justify-content:center;gap:8px;color:#8994a6;font-size:11px}
+.alert{display:none;margin:-14px 0 20px;padding:11px 13px;border-radius:9px;background:#fff1f0;color:#b42318;font-size:12px;line-height:1.5}.alert.show{display:block}
+@media(max-width:800px){body{padding:15px}.shell{grid-template-columns:1fr;max-width:520px;min-height:auto}.visual{display:none}.form-side{padding:42px 32px}.mobile-brand{display:block;font:800 21px Manrope;margin-bottom:42px;color:var(--navy)}.mobile-brand span{color:var(--blue)}}
+@media(max-width:420px){.form-side{padding:34px 22px}h2{font-size:28px}}
+</style>
+</head>
+<body>
+<main class="shell">
+<section class="visual">
+<div class="brand">Veritas<span>Finance</span></div>
+<div class="eyebrow">Financial clarity starts here</div>
+<h1>Your financial life, in better focus.</h1>
+<p>One secure place to understand your financial identity, track your progress and make more confident decisions.</p>
+<div class="points">
+<div class="point"><span class="check">✓</span> AI-powered financial insights</div>
+<div class="point"><span class="check">✓</span> Intelligent financial Trust Score</div>
+<div class="point"><span class="check">✓</span> Privacy-conscious financial profile</div>
+</div>
+<div class="visual-foot">VERITASFINANCE · YOUR FINANCIAL IDENTITY</div>
+</section>
+<section class="form-side">
+<div class="mobile-brand">Veritas<span>Finance</span></div>
+<div class="kicker">Welcome back</div>
+<h2>Sign in to your account</h2>
+<p class="sub">Enter your details below to access your personal financial workspace.</p>
+<div id="errorMessage" class="alert" role="alert"></div><div id="successMessage" class="success" role="status" style="display:none;margin:-14px 0 20px;padding:11px 13px;border-radius:9px;background:#ecfdf3;color:#067647;font-size:12px">Your account is ready. Sign in with your registered email and password.</div>
+<form action="login" method="post" autocomplete="on">
+<div class="field"><label for="email">EMAIL ADDRESS</label><input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="username" required></div>
+<div class="field"><label for="password">PASSWORD</label><div class="input-wrap"><input class="password" id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button class="toggle" type="button" onclick="togglePassword()">Show</button></div></div>
+<div class="options"><span>Use your registered email address</span></div>
+<button class="submit" type="submit">Sign in securely&nbsp; →</button>
+</form>
+<div class="switch">New to VeritasFinance? <a href="register.html">Create an account</a></div>
+<div class="secure"><span>▣</span> Your account details are protected</div>
+</section>
+</main>
+<script>
+function togglePassword(){const p=document.getElementById('password'),b=document.querySelector('.toggle');p.type=p.type==='password'?'text':'password';b.textContent=p.type==='password'?'Show':'Hide'}
+const params=new URLSearchParams(location.search),error=params.get('error');if(params.get('registered')==='1')document.getElementById('successMessage').style.display='block';
+if(error){const box=document.getElementById('errorMessage');box.textContent=error==='invalid'?'The email address or password is incorrect. Please try again.':'We could not sign you in. Please check your details and try again.';box.classList.add('show')}
+</script>
+</body></html>

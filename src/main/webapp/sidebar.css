@@ -1,0 +1,9 @@
+
+.menu-toggle{position:fixed;top:18px;left:18px;z-index:1201;width:46px;height:46px;border:0;border-radius:12px;background:#fff;color:#174ea6;box-shadow:0 4px 18px #17243a20;font-size:22px;cursor:pointer}
+.sidebar{position:fixed!important;top:0!important;left:-310px!important;width:285px!important;height:100vh!important;z-index:1200!important;background:#fff!important;color:#17243a!important;padding:24px 18px!important;box-shadow:8px 0 30px #17243a20!important;transition:left .25s ease!important;overflow-y:auto!important}
+.sidebar.active{left:0!important}
+.sidebar a{display:flex;align-items:center;gap:12px;padding:13px 15px;margin:7px 0;border-radius:11px;text-decoration:none;color:#33445c!important;background:transparent!important;font-weight:600}
+.sidebar a:hover,.sidebar a.active{background:#eaf1fb!important;color:#174ea6!important}
+.sidebar .logout a{color:#b42332!important}
+.overlay{position:fixed;inset:0;background:#0b183044;z-index:1199;opacity:0;visibility:hidden;transition:.25s}
+.overlay.active{opacity:1;visibility:visible}
