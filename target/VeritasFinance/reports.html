@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Financial Report</title>
+<link rel="stylesheet" href="veritasfinance-design.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="vf-app.css">
+</head>
+
+<body>
+
+<h2>Generate Financial Report</h2>
+
+<form action="report" method="post">
+
+Monthly Income<br>
+<input type="number" name="monthlyIncome"><br><br>
+
+Monthly Savings<br>
+<input type="number" name="monthlySavings"><br><br>
+
+Bill Payment Status<br>
+<input type="text" name="billPaymentStatus"><br><br>
+
+Loan Status<br>
+<input type="text" name="loanStatus"><br><br>
+
+Income Score<br>
+<input type="number" name="incomeScore"><br><br>
+
+Savings Score<br>
+<input type="number" name="savingsScore"><br><br>
+
+Payment Score<br>
+<input type="number" name="paymentScore"><br><br>
+
+Debt Score<br>
+<input type="number" name="debtScore"><br><br>
+
+Total Score<br>
+<input type="number" name="totalScore"><br><br>
+
+<input type="submit" value="Generate Report">
+
+</form>
+
+<br>
+
+<a href="dashboard.html">Back to Dashboard</a>
+
+<script src="veritasfinance-sidebar.js"></script>
+</body>
+</html>

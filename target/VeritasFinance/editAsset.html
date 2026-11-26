@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit Asset</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#f4f7fc;
+    margin:0;
+    padding:40px;
+}
+
+.container{
+    width:650px;
+    margin:auto;
+    background:#fff;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+h2{
+    text-align:center;
+    color:#1e5fb3;
+    margin-bottom:30px;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:16px;
+    box-sizing:border-box;
+}
+
+textarea{
+    height:80px;
+    resize:vertical;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#1e5fb3;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:17px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#154d94;
+}
+
+</style>
+
+<link rel="stylesheet" href="veritasfinance-design.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="vf-app.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Edit Asset</h2>
+
+<form id="editForm">
+
+<input
+type="hidden"
+id="assetId"
+name="assetId">
+
+<input
+type="hidden"
+id="userId"
+name="userId">
+
+<input
+type="text"
+id="assetName"
+name="assetName"
+placeholder="Asset Name"
+required>
+
+<input
+type="text"
+id="assetType"
+name="assetType"
+placeholder="Asset Type"
+required>
+
+<input
+type="number"
+id="estimatedValue"
+name="estimatedValue"
+placeholder="Estimated Value"
+required>
+
+<input
+type="number"
+id="purchaseYear"
+name="purchaseYear"
+placeholder="Purchase Year"
+required>
+
+<input
+type="text"
+id="ownershipType"
+name="ownershipType"
+placeholder="Ownership Type"
+required>
+
+<input
+type="text"
+id="location"
+name="location"
+placeholder="Location"
+required>
+
+<textarea
+id="description"
+name="description"
+placeholder="Description"></textarea>
+
+<input
+type="text"
+id="documentPath"
+name="documentPath"
+placeholder="Document">
+
+<button type="submit">
+Update Asset
+</button>
+
+</form>
+
+</div>
+
+<script src="js/editAsset.js"></script>
+
+<script src="veritasfinance-sidebar.js"></script>
+</body>
+</html>

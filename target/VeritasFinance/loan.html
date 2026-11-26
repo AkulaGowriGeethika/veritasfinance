@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AI Loan Eligibility Predictor</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#eef3fb;
+padding:40px;
+}
+
+.container{
+width:500px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+h2{
+text-align:center;
+color:#1d5fbf;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#1d5fbf;
+color:white;
+border:none;
+font-size:16px;
+cursor:pointer;
+}
+
+</style>
+
+<link rel="stylesheet" href="veritasfinance-design.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="vf-app.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>AI Loan Eligibility Predictor</h2>
+
+<form action="loan" method="post">
+
+<label>Monthly Income</label>
+
+<input
+type="number"
+name="income"
+required>
+
+<label>AI Trust Score</label>
+
+<input
+type="number"
+name="trustScore"
+required>
+
+<button type="submit">
+
+Check Eligibility
+
+</button>
+
+</form>
+
+</div>
+
+<script src="veritasfinance-sidebar.js"></script>
+</body>
+
+</html>

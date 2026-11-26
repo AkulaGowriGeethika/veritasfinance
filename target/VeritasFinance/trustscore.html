@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet" href="sidebar.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Financial Trust Score | VeritasFinance</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f3f7fd;
+    color:#1f2937;
+}
+
+/* HEADER */
+
+.header{
+    background:linear-gradient(135deg,#1765c1,#4d8df7);
+    color:white;
+    padding:35px 20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.header h1{
+    margin:0;
+    font-size:38px;
+}
+
+.header p{
+    margin-top:10px;
+    font-size:17px;
+    opacity:.9;
+}
+
+/* MAIN */
+
+.container{
+    max-width:1100px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+/* SCORE CARD */
+
+.score-card{
+    background:white;
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+    margin-bottom:30px;
+}
+
+.score-circle{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    margin:10px auto 20px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(135deg,#1765c1,#4d8df7);
+    color:white;
+
+    box-shadow:0 8px 20px rgba(23,101,193,.3);
+}
+
+.score-number{
+    font-size:52px;
+    font-weight:bold;
+}
+
+.score-label{
+    font-size:15px;
+}
+
+.status{
+    display:inline-block;
+    padding:8px 20px;
+    border-radius:30px;
+    background:#dcfce7;
+    color:#15803d;
+    font-weight:bold;
+}
+
+/* GRID */
+
+.metrics{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.metric{
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 5px 18px rgba(0,0,0,.09);
+}
+
+.metric h3{
+    color:#1765c1;
+    margin-top:0;
+}
+
+.metric-value{
+    font-size:19px;
+    font-weight:bold;
+}
+
+.good{
+    color:#16a34a;
+}
+
+.warning{
+    color:#f59e0b;
+}
+
+/* BUDGET */
+
+.budget-section{
+    margin-top:30px;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
+}
+
+.budget-section h2{
+    color:#1765c1;
+    margin-top:0;
+}
+
+.budget-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.budget-item{
+    background:#f7faff;
+    padding:20px;
+    border-radius:12px;
+}
+
+.budget-item label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.budget-item input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccd6e5;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.calculate{
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#1765c1;
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.calculate:hover{
+    background:#0d4f9e;
+}
+
+/* RESULT */
+
+.budget-result{
+    margin-top:20px;
+    padding:20px;
+    background:#eef6ff;
+    border-radius:12px;
+    display:none;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.result-box{
+    background:white;
+    padding:18px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.result-box h4{
+    margin:0 0 8px;
+    color:#1765c1;
+}
+
+.result-box strong{
+    font-size:22px;
+}
+
+/* ACTIONS */
+
+.actions{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 22px;
+    border-radius:9px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+
+.dashboard{
+    background:#1765c1;
+}
+
+.analytics{
+    background:#16a34a;
+}
+
+.assistant{
+    background:#f59e0b;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#64748b;
+}
+
+@media(max-width:800px){
+
+    .metrics{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .budget-grid{
+        grid-template-columns:1fr;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    .metrics{
+        grid-template-columns:1fr;
+    }
+
+    .header h1{
+        font-size:28px;
+    }
+
+}
+
+</style>
+
+<link rel="stylesheet" href="veritasfinance-design.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="vf-app.css">
+</head>
+
+<body>
+
+
+<!-- HEADER -->
+
+<div class="header">
+
+<h1>VeritasFinance</h1>
+
+<p>Privacy-First AI Financial Identity Platform</p>
+
+</div>
+
+
+<div class="container">
+
+<!-- TRUST SCORE -->
+
+<div class="score-card">
+
+<h2>Your Financial Trust Score</h2>
+
+<div class="score-circle">
+
+<div class="score-number">85</div>
+
+<div class="score-label">out of 100</div>
+
+</div>
+
+<div class="status">
+Excellent Financial Profile
+</div>
+
+<p>
+Your financial behaviour shows strong savings discipline,
+stable income and responsible payment habits.
+</p>
+
+</div>
+
+
+<!-- FINANCIAL METRICS -->
+
+<div class="metrics">
+
+<div class="metric">
+
+<h3>💰 Income Stability</h3>
+
+<div class="metric-value good">
+Good
+</div>
+
+<p>
+Your income pattern indicates reasonable financial stability.
+</p>
+
+</div>
+
+
+<div class="metric">
+
+<h3>📈 Savings Discipline</h3>
+
+<div class="metric-value good">
+Excellent
+</div>
+
+<p>
+Your savings behaviour positively contributes to your score.
+</p>
+
+</div>
+
+
+<div class="metric">
+
+<h3>💳 Bill Payments</h3>
+
+<div class="metric-value good">
+On Time
+</div>
+
+<p>
+Consistent payments improve your financial reliability.
+</p>
+
+</div>
+
+
+<div class="metric">
+
+<h3>🛡️ Debt Risk</h3>
+
+<div class="metric-value good">
+Low
+</div>
+
+<p>
+Your current debt exposure is within a healthy range.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- BUDGET PLANNER -->
+
+<div class="budget-section">
+
+<h2>📊 Personal Budget Planner</h2>
+
+<p>
+Plan your monthly finances and understand how much you can
+save after essential expenses.
+</p>
+
+<div class="budget-grid">
+
+<div class="budget-item">
+
+<label>Monthly Income (₹)</label>
+
+<input
+type="number"
+id="income"
+placeholder="Example: 50000"
+min="0">
+
+</div>
+
+
+<div class="budget-item">
+
+<label>Food & Groceries (₹)</label>
+
+<input
+type="number"
+id="food"
+placeholder="Example: 8000"
+min="0">
+
+</div>
+
+
+<div class="budget-item">
+
+<label>Rent / Housing (₹)</label>
+
+<input
+type="number"
+id="rent"
+placeholder="Example: 12000"
+min="0">
+
+</div>
+
+
+<div class="budget-item">
+
+<label>Transport (₹)</label>
+
+<input
+type="number"
+id="transport"
+placeholder="Example: 3000"
+min="0">
+
+</div>
+
+
+<div class="budget-item">
+
+<label>Utilities (₹)</label>
+
+<input
+type="number"
+id="utilities"
+placeholder="Example: 2500"
+min="0">
+
+</div>
+
+
+<div class="budget-item">
+
+<label>Other Expenses (₹)</label>
+
+<input
+type="number"
+id="other"
+placeholder="Example: 3000"
+min="0">
+
+</div>
+
+</div>
+
+
+<button class="calculate" onclick="calculateBudget()">
+Calculate My Budget
+</button>
+
+
+<div class="budget-result" id="budgetResult">
+
+<h3>💡 Your Monthly Budget Summary</h3>
+
+<div class="result-grid">
+
+<div class="result-box">
+
+<h4>Total Expenses</h4>
+
+<strong id="totalExpenses">
+₹0
+</strong>
+
+</div>
+
+
+<div class="result-box">
+
+<h4>Remaining Amount</h4>
+
+<strong id="remaining">
+₹0
+</strong>
+
+</div>
+
+
+<div class="result-box">
+
+<h4>Recommended Savings</h4>
+
+<strong id="recommended">
+₹0
+</strong>
+
+</div>
+
+</div>
+
+<p id="budgetMessage"></p>
+
+</div>
+
+</div>
+
+
+<!-- ACTION BUTTONS -->
+
+<div class="actions">
+
+<a href="dashboard.html" class="btn dashboard">
+🏠 Dashboard
+</a>
+
+<a href="analytics.html" class="btn analytics">
+📊 Financial Analytics
+</a>
+
+<a href="aichat.html" class="btn assistant">
+🤖 AI Assistant
+</a>
+
+</div>
+
+</div>
+
+
+<footer>
+
+© 2026 VeritasFinance • AI Powered Financial Identity
+
+</footer>
+
+
+<script>
+
+function getValue(id){
+
+    return Number(document.getElementById(id).value) || 0;
+
+}
+
+function formatMoney(value){
+
+    return "₹ " + value.toLocaleString("en-IN");
+
+}
+
+function calculateBudget(){
+
+    const income = getValue("income");
+
+    const food = getValue("food");
+    const rent = getValue("rent");
+    const transport = getValue("transport");
+    const utilities = getValue("utilities");
+    const other = getValue("other");
+
+    if(income <= 0){
+
+        alert("Please enter your monthly income.");
+
+        return;
+
+    }
+
+    const expenses =
+        food +
+        rent +
+        transport +
+        utilities +
+        other;
+
+    const remaining = income - expenses;
+
+    const recommended = income * 0.20;
+
+    document.getElementById("totalExpenses").innerText =
+        formatMoney(expenses);
+
+    document.getElementById("remaining").innerText =
+        formatMoney(remaining);
+
+    document.getElementById("recommended").innerText =
+        formatMoney(recommended);
+
+    const result =
+        document.getElementById("budgetResult");
+
+    result.style.display = "block";
+
+    const message =
+        document.getElementById("budgetMessage");
+
+    if(remaining < 0){
+
+        message.innerHTML =
+        "⚠️ Your expenses are higher than your income. Consider reducing non-essential spending.";
+
+    }
+
+    else if(remaining < recommended){
+
+        message.innerHTML =
+        "💡 You are saving below the recommended level. Try increasing your monthly savings.";
+
+    }
+
+    else{
+
+        message.innerHTML =
+        "✅ Great! Your budget leaves enough room for healthy savings.";
+
+    }
+
+}
+
+</script>
+
+<script src="veritasfinance-sidebar.js"></script>
+</body>
+
+</html>

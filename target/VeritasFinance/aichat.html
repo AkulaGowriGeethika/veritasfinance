@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Financial Assistant</title>
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background:#eef3fb;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    width:500px;
+    margin:80px auto;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+h1{
+    color:#1d5fbf;
+    margin-bottom:30px;
+}
+
+input{
+    width:90%;
+    padding:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+button{
+    margin-top:20px;
+    background:#1d5fbf;
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#154b97;
+}
+
+a{
+    display:block;
+    margin-top:25px;
+    text-decoration:none;
+    color:#1d5fbf;
+    font-weight:bold;
+}
+
+</style>
+
+<link rel="stylesheet" href="veritasfinance-design.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="vf-app.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AI Financial Assistant</h1>
+
+<form action="aichat" method="post">
+
+<input
+type="text"
+name="question"
+placeholder="Ask about loans, savings, trust score..."
+required>
+
+<br>
+
+<button type="submit">
+Ask AI
+</button>
+
+</form>
+
+<a href="dashboard.html">
+Back to Dashboard
+</a>
+
+</div>
+
+<script src="veritasfinance-sidebar.js"></script>
+</body>
+</html>

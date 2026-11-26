@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Add Asset</title>
+<link rel="stylesheet" href="assets/css/asset.css">
+<link rel="stylesheet" href="veritasfinance-design.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="vf-app.css">
+</head>
+
+<body>
+
+<h2>Add New Asset</h2>
+
+<form action="asset" method="post">
+
+User ID<br>
+<input type="number" name="userId" required><br><br>
+
+Asset Name<br>
+<input type="text" name="assetName" required><br><br>
+
+Asset Type<br>
+
+<select name="assetType">
+
+<option>House</option>
+<option>Land</option>
+<option>Gold</option>
+<option>Vehicle</option>
+<option>Commercial</option>
+
+</select>
+
+<br><br>
+
+Estimated Value<br>
+<input type="number" name="estimatedValue"><br><br>
+
+Purchase Year<br>
+<input type="number" name="purchaseYear"><br><br>
+
+Ownership<br>
+
+<select name="ownershipType">
+
+<option>Self</option>
+<option>Joint</option>
+<option>Inherited</option>
+
+</select>
+
+<br><br>
+
+Location<br>
+<input type="text" name="location"><br><br>
+
+Description<br>
+
+<textarea name="description"></textarea>
+
+<br><br>
+
+<input type="submit" value="Save Asset">
+
+</form>
+
+<script src="veritasfinance-sidebar.js"></script>
+</body>
+
+</html>
