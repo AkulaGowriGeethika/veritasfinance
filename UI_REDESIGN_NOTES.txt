@@ -1,0 +1,9 @@
+VeritasFinance UI refresh
+
+- Added shared professional design tokens and responsive styling.
+- Added reusable hidden-by-default navigation drawer for authenticated pages lacking an existing sidebar.
+- Existing pages, servlet routes, Java sources, Maven configuration and database code are preserved.
+- Build from project root: mvn clean package
+- Deploy target/VeritasFinance.war to Tomcat 10.1 webapps.
+
+Frontend consistency pass (Nov 2026): fixed duplicate analytics navigation, standardized the shared drawer and responsive controls, and added vf-app.css across authenticated pages. Existing servlet routes and form field names are retained.

@@ -1,0 +1,4 @@
+/target/
+/checkwar/
+src/main/resources/config.properties
+*.log
