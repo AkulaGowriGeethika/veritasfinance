@@ -3,200 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101d33">
-  <title>VeritasFinance | Your Financial Identity</title>
-  <meta name="description" content="A smarter, privacy-first financial identity platform.">
+  <meta name="theme-color" content="#174ea6">
+  <title>VeritasFinance | A smarter financial beginning</title>
+  <link rel="stylesheet" href="veritasfinance-design.css">
+  <link rel="stylesheet" href="vf-app.css">
   <style>
     :root {
-      --navy: #101d33;
-      --navy-2: #182b49;
-      --gold: #d8b66a;
-      --gold-light: #f2e4bf;
-      --ink: #1c2940;
-      --muted: #68758a;
-      --paper: #fbfaf7;
-      --white: #fff;
+      --home-blue: #174ea6;
+      --home-blue-dark: #123b7a;
+      --home-blue-soft: #eaf1fb;
+      --home-ink: #17243a;
+      --home-muted: #64748b;
+      --home-bg: #f4f7fb;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      color: var(--ink);
-      background: var(--paper);
+    body { margin: 0; padding: 0 !important; background: var(--home-bg) !important; color: var(--home-ink); }
+    .home-shell { min-height: 100vh; overflow: hidden; }
+    .home-header {
+      height: 78px; padding: 0 clamp(20px, 7vw, 100px);
+      display: flex; align-items: center; justify-content: space-between; gap: 22px;
+      background: #fff; border-bottom: 1px solid #e3eaf3;
+      box-shadow: 0 3px 18px rgba(23,36,58,.045);
     }
-    a { text-decoration: none; }
-    .topbar {
-      height: 78px;
-      padding: 0 clamp(22px, 6vw, 88px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      background: rgba(251,250,247,.94);
-      border-bottom: 1px solid #e9e5dc;
+    .home-brand { display: flex; align-items: center; gap: 12px; color: var(--home-ink); text-decoration: none; }
+    .home-logo {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: 12px; color: #fff; font-size: 21px; font-weight: 800;
+      background: linear-gradient(145deg, #2c70d1, #174ea6);
+      box-shadow: 0 6px 15px rgba(23,78,166,.22);
     }
-    .brand { display: flex; align-items: center; gap: 12px; color: var(--navy); }
-    .brand-mark {
-      width: 40px; height: 40px; border-radius: 12px;
-      display: grid; place-items: center;
-      color: var(--navy); background: var(--gold);
-      font-weight: 900; font-size: 20px;
+    .home-brand strong { display: block; font-size: 19px; letter-spacing: -.4px; }
+    .home-brand small { display: block; margin-top: 2px; color: #718096; font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; }
+    .home-nav { display: flex; align-items: center; gap: 26px; }
+    .home-nav a { color: #53647b; text-decoration: none; font-size: 13px; font-weight: 650; }
+    .home-nav a:hover { color: var(--home-blue); }
+    .home-nav .home-login { padding: 10px 17px; border: 1px solid #d5deea; border-radius: 9px; color: var(--home-blue); }
+    .home-nav .home-register { padding: 11px 18px; border-radius: 9px; background: var(--home-blue); color: #fff; box-shadow: 0 6px 16px rgba(23,78,166,.18); }
+    .home-hero {
+      position: relative; display: grid; grid-template-columns: 1.08fr .92fr; align-items: center;
+      gap: 40px; padding: 82px clamp(22px, 8vw, 118px) 88px;
+      background: linear-gradient(115deg, #123b7a 0%, #174ea6 56%, #2d70c9 100%);
+      color: #fff;
     }
-    .brand-name { font-weight: 800; letter-spacing: -.5px; font-size: 19px; }
-    .brand-tag { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
-    .nav { display: flex; align-items: center; gap: 30px; }
-    .nav a { color: #4d5a6e; font-size: 13px; font-weight: 650; }
-    .nav a:hover { color: #a17b2f; }
-    .nav .nav-login { padding: 11px 19px; border: 1px solid #d9d3c7; border-radius: 9px; color: var(--navy); }
-    .nav .nav-register { padding: 12px 19px; border-radius: 9px; color: var(--navy); background: var(--gold); }
-    .hero {
-      position: relative; overflow: hidden;
-      min-height: 590px;
-      display: grid; grid-template-columns: 1.1fr .9fr;
-      align-items: center; gap: 40px;
-      padding: 76px clamp(22px, 8vw, 120px) 84px;
-      color: white;
-      background: radial-gradient(circle at 78% 45%, #294366 0, transparent 31%), linear-gradient(120deg, #101d33 0%, #172b49 100%);
+    .home-hero:before, .home-hero:after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.10); border-radius: 50%; pointer-events: none; }
+    .home-hero:before { width: 480px; height: 480px; right: 2%; top: -180px; }
+    .home-hero:after { width: 360px; height: 360px; right: 7%; bottom: -230px; }
+    .home-copy, .home-art { position: relative; z-index: 1; }
+    .home-kicker { display: inline-flex; align-items: center; gap: 9px; color: #dceaff; font-size: 11px; font-weight: 750; letter-spacing: 1.8px; text-transform: uppercase; }
+    .home-kicker:before { content: ""; width: 25px; height: 2px; background: #9fc5ff; }
+    .home-copy h1 { max-width: 650px; margin: 21px 0 18px; color: #fff; font-size: clamp(39px, 5vw, 64px); line-height: 1.08; letter-spacing: -2px; }
+    .home-copy h1 span { color: #b9d5ff; }
+    .home-copy p { max-width: 540px; margin: 0 0 29px; color: #e0eaff; font-size: 15px; line-height: 1.8; }
+    .home-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .home-btn { min-height: 47px; display: inline-flex; align-items: center; justify-content: center; padding: 0 21px; border-radius: 9px; font-size: 13px; font-weight: 750; text-decoration: none; transition: transform .18s, box-shadow .18s; }
+    .home-btn:hover { transform: translateY(-2px); }
+    .home-btn-primary { background: #fff; color: var(--home-blue-dark); box-shadow: 0 8px 20px rgba(0,0,0,.13); }
+    .home-btn-outline { border: 1px solid rgba(255,255,255,.55); color: #fff; }
+    .home-visual { display: flex; justify-content: center; }
+    .identity-preview {
+      width: min(100%, 390px); padding: 27px; border: 1px solid rgba(255,255,255,.3);
+      border-radius: 19px; background: linear-gradient(145deg, rgba(255,255,255,.20), rgba(255,255,255,.08));
+      box-shadow: 0 25px 65px rgba(7,29,67,.25); backdrop-filter: blur(10px);
     }
-    .hero:after {
-      content: ""; position: absolute; width: 440px; height: 440px;
-      right: 3%; top: 12%; border: 1px solid rgba(216,182,106,.18);
-      border-radius: 50%; box-shadow: 0 0 0 35px rgba(216,182,106,.035), 0 0 0 75px rgba(216,182,106,.025);
-      pointer-events: none;
-    }
-    .hero-copy, .visual { position: relative; z-index: 1; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 9px;
-      color: var(--gold-light); font-size: 11px; font-weight: 750;
-      letter-spacing: 2px; text-transform: uppercase;
-    }
-    .eyebrow:before { content: ""; width: 26px; height: 1px; background: var(--gold); }
-    h1 { max-width: 650px; margin: 22px 0 20px; font-size: clamp(42px, 5.2vw, 68px); line-height: 1.06; letter-spacing: -2.3px; }
-    h1 span { color: var(--gold); }
-    .hero-copy p { max-width: 535px; color: #c5cfdd; font-size: 16px; line-height: 1.8; margin: 0 0 32px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 13px; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 23px; border-radius: 9px; font-size: 13px; font-weight: 750; transition: transform .2s, box-shadow .2s; }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { color: var(--navy); background: var(--gold); box-shadow: 0 8px 24px rgba(216,182,106,.18); }
-    .btn-secondary { color: white; border: 1px solid rgba(255,255,255,.28); }
-    .visual { display: flex; justify-content: center; }
-    .identity-card {
-      width: min(100%, 390px); padding: 27px; border-radius: 19px;
-      border: 1px solid rgba(255,255,255,.2);
-      background: linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.055));
-      box-shadow: 0 28px 70px rgba(0,0,0,.22);
-      backdrop-filter: blur(12px); transform: rotate(2deg);
-    }
-    .card-top { display: flex; align-items: center; justify-content: space-between; color: #dce4ef; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; }
-    .chip { width: 37px; height: 28px; border: 1px solid var(--gold); border-radius: 7px; background: linear-gradient(135deg, rgba(216,182,106,.55), rgba(216,182,106,.08)); }
-    .card-title { margin: 30px 0 7px; color: white; font-size: 22px; font-weight: 750; }
-    .card-sub { color: #b8c5d6; font-size: 12px; }
-    .score-row { display: flex; align-items: end; justify-content: space-between; margin-top: 36px; padding-top: 21px; border-top: 1px solid rgba(255,255,255,.16); }
-    .score-label { color: #b8c5d6; font-size: 11px; }
-    .score { color: var(--gold); font-size: 35px; font-weight: 800; letter-spacing: -1px; }
-    .verified { color: #dcebdc; font-size: 11px; }
-    .features { padding: 76px clamp(22px, 8vw, 120px) 84px; background: var(--paper); }
-    .section-head { max-width: 650px; margin: 0 auto 40px; text-align: center; }
-    .section-head .eyebrow { color: #9b7837; }
-    h2 { margin: 14px 0 12px; color: var(--navy); font-size: clamp(28px, 3vw, 38px); letter-spacing: -1px; }
-    .section-head p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
-    .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 17px; }
-    .feature {
-      padding: 25px 22px; border: 1px solid #e9e5dc; border-radius: 14px;
-      background: white; box-shadow: 0 8px 25px rgba(24,43,73,.035);
-    }
-    .feature-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: #f6efdf; color: #9b7837; font-size: 19px; }
-    .feature h3 { margin: 18px 0 8px; color: var(--navy); font-size: 15px; }
-    .feature p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
-    .bottom-cta { margin: 0 clamp(22px, 8vw, 120px) 70px; padding: 34px 38px; border-radius: 16px; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: var(--gold-light); }
-    .bottom-cta h2 { margin: 0 0 6px; font-size: 23px; }
-    .bottom-cta p { margin: 0; color: #6f6247; font-size: 13px; }
-    .bottom-cta .btn { background: var(--navy); color: white; white-space: nowrap; }
-    footer { padding: 24px clamp(22px, 8vw, 120px); display: flex; justify-content: space-between; gap: 16px; color: #8791a0; background: #f3f1ec; font-size: 11px; }
-    @media (max-width: 850px) {
-      .hero { grid-template-columns: 1fr; padding-top: 65px; }
-      .visual { justify-content: flex-start; margin-top: 10px; }
-      .identity-card { transform: none; }
-      .feature-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    .preview-top { display: flex; justify-content: space-between; align-items: center; color: #e8f1ff; font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase; }
+    .preview-chip { width: 38px; height: 28px; border: 1px solid #b9d5ff; border-radius: 7px; background: linear-gradient(135deg, rgba(255,255,255,.4), rgba(255,255,255,.08)); }
+    .preview-title { margin: 31px 0 7px; color: #fff; font-size: 22px; font-weight: 750; }
+    .preview-sub { color: #d4e4ff; font-size: 12px; }
+    .preview-bottom { display: flex; justify-content: space-between; align-items: end; gap: 15px; margin-top: 34px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.22); }
+    .preview-label { color: #d4e4ff; font-size: 11px; }
+    .preview-score { margin-top: 4px; color: #fff; font-size: 27px; font-weight: 800; }
+    .preview-status { color: #dceaff; font-size: 11px; text-align: right; }
+    .home-features { padding: 74px clamp(22px, 8vw, 118px) 82px; background: #f4f7fb; }
+    .home-section-head { max-width: 650px; margin: 0 auto 38px; text-align: center; }
+    .home-section-head .home-kicker { color: var(--home-blue); }
+    .home-section-head h2 { margin: 13px 0 10px; color: var(--home-ink); font-size: clamp(28px, 3vw, 37px); letter-spacing: -.8px; }
+    .home-section-head p { margin: 0; color: var(--home-muted); font-size: 14px; line-height: 1.75; }
+    .home-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 17px; }
+    .home-feature { padding: 24px 21px; border: 1px solid #e3eaf3; border-radius: 15px; background: #fff; box-shadow: 0 8px 25px rgba(23,36,58,.045); }
+    .home-feature-icon { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 12px; background: #eaf1fb; color: var(--home-blue); font-size: 20px; font-weight: 800; }
+    .home-feature h3 { margin: 17px 0 7px; color: var(--home-ink); font-size: 15px; }
+    .home-feature p { margin: 0; color: var(--home-muted); font-size: 12px; line-height: 1.7; }
+    .home-cta { margin: 0 clamp(22px, 8vw, 118px) 65px; padding: 30px 34px; display: flex; align-items: center; justify-content: space-between; gap: 22px; border: 1px solid #dbe7f8; border-radius: 15px; background: #eaf1fb; }
+    .home-cta h2 { margin: 0 0 5px; color: var(--home-ink); font-size: 22px; }
+    .home-cta p { margin: 0; color: var(--home-muted); font-size: 13px; }
+    .home-cta .home-btn { background: var(--home-blue); color: #fff; white-space: nowrap; }
+    .home-footer { padding: 23px clamp(22px, 8vw, 118px); display: flex; justify-content: space-between; gap: 15px; background: #fff; border-top: 1px solid #e3eaf3; color: #7b8798; font-size: 11px; }
+    @media (max-width: 850px) { .home-hero { grid-template-columns: 1fr; padding-top: 65px; } .home-visual { justify-content: flex-start; } .home-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) {
-      .topbar { height: auto; min-height: 72px; padding: 14px 18px; }
-      .nav { gap: 9px; }
-      .nav a:not(.nav-login):not(.nav-register) { display: none; }
-      .nav .nav-login, .nav .nav-register { padding: 10px 12px; font-size: 11px; }
-      .brand-name { font-size: 17px; }
-      .hero { min-height: auto; padding: 58px 22px 65px; }
-      h1 { letter-spacing: -1.5px; }
-      .hero-copy p { font-size: 14px; }
-      .feature-grid { grid-template-columns: 1fr; }
-      .features { padding-top: 58px; padding-bottom: 60px; }
-      .bottom-cta { margin: 0 18px 45px; padding: 25px; align-items: flex-start; flex-direction: column; }
-      footer { flex-direction: column; }
+      .home-header { min-height: 70px; height: auto; padding: 12px 16px; }
+      .home-brand strong { font-size: 16px; }
+      .home-brand small { font-size: 9px; }
+      .home-nav { gap: 8px; }
+      .home-nav a:not(.home-login):not(.home-register) { display: none; }
+      .home-nav .home-login, .home-nav .home-register { padding: 9px 11px; font-size: 11px; }
+      .home-hero { padding: 56px 22px 62px; }
+      .home-copy h1 { letter-spacing: -1.3px; }
+      .home-grid { grid-template-columns: 1fr; }
+      .home-features { padding-top: 57px; padding-bottom: 60px; }
+      .home-cta { margin: 0 16px 42px; padding: 24px; align-items: flex-start; flex-direction: column; }
+      .home-footer { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="index.html" aria-label="VeritasFinance home">
-      <span class="brand-mark">V</span>
-      <span><span class="brand-name">VeritasFinance</span><span class="brand-tag">Your financial identity</span></span>
+<div class="home-shell">
+  <header class="home-header">
+    <a class="home-brand" href="index.html">
+      <span class="home-logo">V</span>
+      <span><strong>VeritasFinance</strong><small>Your financial identity</small></span>
     </a>
-    <nav class="nav" aria-label="Main navigation">
+    <nav class="home-nav" aria-label="Main navigation">
       <a href="#features">Features</a>
-      <a class="nav-login" href="login.html">Log in</a>
-      <a class="nav-register" href="register.html">Get started</a>
+      <a class="home-login" href="login.html">Log in</a>
+      <a class="home-register" href="register.html">Get started</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow">Privacy-first financial platform</div>
+    <section class="home-hero">
+      <div class="home-copy">
+        <div class="home-kicker">Privacy-preserving financial identity</div>
         <h1>Make every financial decision <span>count.</span></h1>
-        <p>Bring your financial identity, trust indicators and planning tools together in one secure, easy-to-use experience. Your information stays in your control.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="register.html">Create your account&nbsp; →</a>
-          <a class="btn btn-secondary" href="login.html">Sign in</a>
+        <p>Bring your financial profile, trust indicators and planning tools together in one simple experience. Explore your financial information with clarity while keeping your preferences in your control.</p>
+        <div class="home-actions">
+          <a class="home-btn home-btn-primary" href="register.html">Create your account&nbsp; →</a>
+          <a class="home-btn home-btn-outline" href="login.html">Sign in</a>
         </div>
       </div>
-      <div class="visual" aria-label="Illustration of a financial identity card">
-        <div class="identity-card">
-          <div class="card-top"><span>VeritasFinance</span><span class="chip"></span></div>
-          <div class="card-title">Your financial identity</div>
-          <div class="card-sub">One place for clearer financial decisions.</div>
-          <div class="score-row">
-            <div><div class="score-label">Trust indicators</div><div class="score">•••</div></div>
-            <div class="verified">● Privacy in your control</div>
+      <div class="home-visual">
+        <div class="identity-preview">
+          <div class="preview-top"><span>VeritasFinance</span><span class="preview-chip"></span></div>
+          <div class="preview-title">Your financial identity</div>
+          <div class="preview-sub">Your profile. Your insights. Your control.</div>
+          <div class="preview-bottom">
+            <div><div class="preview-label">Financial trust indicators</div><div class="preview-score">•••</div></div>
+            <div class="preview-status">● Privacy first</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="features" id="features">
-      <div class="section-head">
-        <div class="eyebrow">Designed around you</div>
-        <h2>Clarity, confidence and control.</h2>
-        <p>Useful financial tools in a simple experience, designed to help you understand your profile and make informed choices.</p>
+    <section class="home-features" id="features">
+      <div class="home-section-head">
+        <div class="home-kicker">Built around your needs</div>
+        <h2>Everything starts with a clearer picture.</h2>
+        <p>Discover the tools that bring your financial identity and insights together in one convenient place.</p>
       </div>
-      <div class="feature-grid">
-        <article class="feature"><div class="feature-icon">◈</div><h3>Financial identity</h3><p>Bring key financial profile information together in one organized place.</p></article>
-        <article class="feature"><div class="feature-icon">✦</div><h3>AI-powered insights</h3><p>Get helpful guidance to better understand your financial information.</p></article>
-        <article class="feature"><div class="feature-icon">◎</div><h3>Trust indicators</h3><p>View your trust-related indicators and track your financial profile.</p></article>
-        <article class="feature"><div class="feature-icon">⌑</div><h3>Privacy first</h3><p>Keep your preferences visible and your information under your control.</p></article>
+      <div class="home-grid">
+        <article class="home-feature"><div class="home-feature-icon">◈</div><h3>Financial profile</h3><p>Keep your key financial profile information organized in one place.</p></article>
+        <article class="home-feature"><div class="home-feature-icon">✦</div><h3>AI-powered guidance</h3><p>Explore helpful insights and guidance through the platform.</p></article>
+        <article class="home-feature"><div class="home-feature-icon">◎</div><h3>Trust score</h3><p>View your trust indicators and understand your financial profile.</p></article>
+        <article class="home-feature"><div class="home-feature-icon">⌑</div><h3>Privacy controls</h3><p>Manage your preferences and keep your information in your control.</p></article>
       </div>
     </section>
 
-    <section class="bottom-cta">
-      <div><h2>Start building a clearer financial picture.</h2><p>Create your profile and explore VeritasFinance.</p></div>
-      <a class="btn" href="register.html">Get started&nbsp; →</a>
+    <section class="home-cta">
+      <div><h2>A smarter financial beginning starts here.</h2><p>Create your profile and explore VeritasFinance.</p></div>
+      <a class="home-btn" href="register.html">Get started&nbsp; →</a>
     </section>
   </main>
 
-  <footer>
+  <footer class="home-footer">
     <span>© 2026 VeritasFinance. All rights reserved.</span>
     <span>A smarter financial beginning.</span>
   </footer>
+</div>
 </body>
 </html>
